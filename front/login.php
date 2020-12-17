@@ -28,7 +28,11 @@ function login(){
         if(res=='1'){
             $.post('api/chkpw.php',{acc,pw},function(r){
                 if(r=='1'){
-                    location.href="index.php";
+                  if(acc=='admin'){
+                        location.href="backend.php";
+                    }else{
+                       location.href="index.php";
+                    
                 }else{
                     alert("密碼錯誤");
                     $("#acc,#pw").val("");

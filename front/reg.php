@@ -38,6 +38,7 @@ function reg(){
         alert("密碼錯誤")
     }else{
         $.post("api/chkacc.php",{acc},function(res){
+          // console.log(res) 用來檢查錯誤
             if(res=='1'){
                 alert("帳號重覆")
             }else{

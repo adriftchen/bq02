@@ -16,7 +16,8 @@
 
 	<div id="all">
     	<div id="title">
-        <?=date("m 月 d 日 l ");?> | 今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])('total');?> | 累積瀏覽: <?=$Total->q("select sum(`total`) from `total`")[0][0];?>  <a href="index.php" style="float:right">回首頁</a>  </div> <!-- 使用date函式，小寫l為星期幾，demo右下角改'自動設定時間'。取出是二維陣列，[][] -->
+			<?=date("m 月 d 日 l ");?> | 今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total'];?> | 累積瀏覽:
+      <?=$Total->q("select sum(`total`) from `total`")[0][0];?> <a href="index.php" style="float:right">回首頁</a>
         <div id="title2" title="健康促進網-回首頁"> <!-- 替代文字用title加在div -->
         	<a href=""index.php><img src="icon/02B01.jpg" style="width:100%"></a> 
         </div>
@@ -29,10 +30,33 @@
                	                     	    <a class="blo" href="?do=que">問卷調查</a>
                	                 </div>
             <div class="hal" id="main">
+						<span style="width:80%; display:inline-block">
+          <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地!詳見最新文章</marquee>
+        </span>
             	<div>
             		
                 	<span style="width:18%; display:inline-block;">
-                    	                    	<a href="?do=login">會員登入</a>
+									<?php
+          if(empty($_SESSION['login'])){
+            echo "<a href='?do=login'>會員登入</a>";
+          }else{
+            if($_SESSION['login']=='admin'){
+
+              ?>
+              歡迎，<?=$_SESSION['login'];?><br>
+
+              <a href="backend.php"><button>管理</button></a>|
+              <a href="api/logout.php"><button>登出</button></a>
+              <?php
+            }else{
+
+              ?>
+              歡迎，<?=$_SESSION['login'];?>
+              <a href="api/logout.php"><button>登出</button></a>
+              <?php
+              }
+            }
+            ?>
                     	                    </span>
                     	<div class="">
                 		                        </div>

@@ -125,6 +125,10 @@ class DB{
 
 }
 
+function to($url){
+    header("location:".$url);
+}
+
 //測試
 // $datetotal=['date'=>date("Y-m-d"),"total"=>1];
 // $db=new DB('total');

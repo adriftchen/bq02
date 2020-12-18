@@ -14,7 +14,7 @@
    </tr>
    <tr>
      <td>Step3:再次確認密碼</td>
-     <td><input type="text" name="pw2" id="pw2"></td>
+     <td><input type="password" name="pw2" id="pw2"></td>
    </tr>
    <tr>
      <td>Step4:信箱(忘記密碼時使用)</td>

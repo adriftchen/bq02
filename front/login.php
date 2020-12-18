@@ -32,7 +32,7 @@ function login(){
                         location.href="backend.php";
                     }else{
                        location.href="index.php";
-                    
+                    }  
                 }else{
                     alert("密碼錯誤");
                     $("#acc,#pw").val("");

@@ -6,6 +6,8 @@ session_start();
 
 $Total=new DB('total');
 $Mem=new DB("mem");
+$News=new DB("news");
+
 $chk=$Total->find(['date'=>date("Y-m-d")]);
 if(empty($chk) && empty($_SESSION['total'])){
     //沒有今天的資料,也沒有session  今天頭香 需要新增今日資料,

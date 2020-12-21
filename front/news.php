@@ -22,7 +22,29 @@
           <span class="title"><?=mb_substr($news['text'],0,30,'utf8');?>...</span>
           <span class="text" style="display:none"><?=nl2br($news['text']);?></span>  <!-- nl2br(string) 函數在字符串中的每個新行(\n) 之前插入HTML 換行符(<br />)。 -->
       </td>  
-      <td></td>
+      <td>
+      <?php
+      //先去增加一張資料表log(id、acc、news)，記錄誰點擊過，並且在登入的情況下才能看
+      if(!empty($_SESSION['login'])){
+        $chk=$Log->count(['acc'=>$_SESSION['login'],'news'=>$news['id']]); /* 判斷log表單某acc有沒有對某news按過讚 */
+        if($chk){
+      ?>
+
+       <a href='#' id="news<?=$news['id'];?>" onclick="good('<?=$news['id'];?>','<?=$_SESSION['login'];?>','2')">收回讚</a>
+
+      <?php
+      
+       }else{
+      ?>
+
+        <a href='#' id="news<?=$news['id'];?>" onclick="good('<?=$news['id'];?>','<?=$_SESSION['login'];?>','1')">讚</a>
+        <?php
+       }
+      }
+      
+      ?>
+      
+      </td>
     </tr>
     <?php
     }

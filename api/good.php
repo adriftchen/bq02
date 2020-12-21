@@ -12,12 +12,20 @@ switch($_POST['type']){
       'news'=>$_POST['news']
     ]);
 
+    $news=$News->find($_POST['news']);
+    $news['good']++;
+    $News->save($news);
+
   break;
   case "2";
   $Log->del([
     'acc'=>$_POST['acc'],
     'news'=>$_POST['news']
     ]);
+    
+    $news=$News->find($_POST['news']);
+    $news['good']--;
+    $News->save($news);
   break;
 }
 

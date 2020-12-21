@@ -2,12 +2,18 @@
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
-//判斷瀏覽人次
-
 $Total=new DB('total');
 $Mem=new DB("mem");
 $News=new DB("news");
 $Log=new Db("log");
+
+$typeStr=[
+    1=>"健康新知",
+    2=>"菸害防治",
+    3=>"癌症防治",
+    4=>"慢性病防治",
+];
+
 
 $chk=$Total->find(['date'=>date("Y-m-d")]);
 if(empty($chk) && empty($_SESSION['total'])){

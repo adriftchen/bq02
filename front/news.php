@@ -7,7 +7,7 @@
       <td width="20%"></td>
     </tr>
     <?php
-      $count=$News->count(['sh'=>1]);
+      $count=$News->count(['sh'=>1]); /* 複製自backend/news.php，改['sh'=>1]*/
       $div=5;
       $pages=ceil($count/$div);
       $now=(isset($_GET['p']))?$_GET['p']:1;
@@ -28,6 +28,7 @@
     }
     ?>
   </table>
+  <!-- 複製自backend/news.php，改a:link路徑index.php... -->
   <div class="ct">
 
 <?php
@@ -37,7 +38,7 @@
 
   for($i=1;$i<=$pages;$i++){
     $fontsize=($i==$now)?"28px":"18px";
-    echo "<a href='index.php?do=news&p=$i' style='font-size:$fontsize'> $i </a>"; //製作頁碼
+    echo "<a href='index.php?do=news&p=$i' style='font-size:$fontsize'> $i </a>";
   }
 
   if(($now+1)<=$pages){

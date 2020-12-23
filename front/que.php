@@ -17,7 +17,7 @@
           <td><?=$key+1;?></td>
           <td><?=$que['text'];?></td>
           <td><?=$que['count'];?></td>
-          <td><a href="?do=result"></a>結果</td>
+          <td><a href="?do=result&id=<?=$que['id'];?>"></a>結果</td>
           <td>
           <?php
           if(!empty($_SESSION['login'])){

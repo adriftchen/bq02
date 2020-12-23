@@ -35,6 +35,6 @@ $options=$Que->all(['subject'=>$id]);  //撈選項
     ?>
   </table>
       <input type="hidden" name="subject" value="<?=$subject['id'];?>">
-  <div class="ct"><a href="index.php?do=que"><button type="button">返回</button></a></div> <!-- button包在 -->
+  <div class="ct"><a href="index.php?do=que"><button type="button">返回</button></a></div> <!-- button包在form裡 要加type="button"-->
 </form>
 </fieldset>

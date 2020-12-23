@@ -6,6 +6,7 @@ $Total=new DB('total');
 $Mem=new DB("mem");
 $News=new DB("news");
 $Log=new Db("log");
+$Que=new DB("que");
 
 $typeStr=[
     1=>"健康新知",

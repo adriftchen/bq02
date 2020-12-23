@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-12-22 08:12:18
+-- 產生時間： 2020-12-23 09:05:20
 -- 伺服器版本： 10.4.14-MariaDB
 -- PHP 版本： 7.4.10
 
@@ -96,6 +96,35 @@ INSERT INTO `news` (`id`, `title`, `text`, `sh`, `type`, `good`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `que`
+--
+
+CREATE TABLE `que` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` int(11) NOT NULL,
+  `count` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `que`
+--
+
+INSERT INTO `que` (`id`, `text`, `subject`, `count`) VALUES
+(1, '你最常做什麼運動來促進健康體能呢?', 0, 13),
+(2, '健走或爬樓梯、慢跑等較不受時間、場地限制的運動。', 1, 5),
+(3, '仰臥起坐、抬腿及伏地挺身、伸展操、瑜珈等室內運動。', 1, 0),
+(4, '球類運動、游泳、跳舞、騎腳踏車等加強心肺功能的運動。', 1, 2),
+(5, '舉重鍛鍊、彈力帶、啞鈴等運用輔助器材鍛鍊肌耐力的運動。', 1, 3),
+(6, '二手菸沒有安全劑量，只要有暴露，就會有危險，請問它會造成身體上哪些危害?', 0, 5),
+(7, '增加罹患冠狀動脈心臟病及罹病死亡之風險。', 6, 2),
+(8, '對孩子的的健康會產生許多影響，例如容易咳嗽或打噴嚏、罹患氣喘或讓症狀更嚴重、會因刺激耳咽管，感染中耳炎、肺功能較差、容易罹患呼吸道疾病等。', 6, 0),
+(9, '孕婦吸入二手菸易造成流產、早產、胎盤早期剝離、子宮感染等疾病。', 6, 1),
+(10, '長期的暴露會造成更嚴重的胸腔問題和過敏症，還會增加心臟病和肺癌的罹患率。', 6, 1);
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `total`
 --
 
@@ -112,7 +141,8 @@ CREATE TABLE `total` (
 INSERT INTO `total` (`id`, `date`, `total`) VALUES
 (1, '2020-12-17', 2),
 (2, '2020-12-18', 2),
-(3, '2020-12-21', 2);
+(3, '2020-12-21', 2),
+(4, '2020-12-23', 2);
 
 --
 -- 已傾印資料表的索引
@@ -134,6 +164,12 @@ ALTER TABLE `mem`
 -- 資料表索引 `news`
 --
 ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `que`
+--
+ALTER TABLE `que`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -165,10 +201,16 @@ ALTER TABLE `news`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `que`
+--
+ALTER TABLE `que`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `total`
 --
 ALTER TABLE `total`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

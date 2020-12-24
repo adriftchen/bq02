@@ -38,7 +38,24 @@ function nav(type){
 // 顯示文章列表的標題
 function getTitle(type){
   $.get("api/get_title.php",{type},function(titles){
-    $(".titles").html(titles)
+    let tt=JSON.parse(titles)
+    // console.log(tt)
+    $(".titles").html("")  //每次執行gettitle之前清空
+    tt.forEach(function(value,idx){
+      let a=document.creatElement('a');
+      let text=document.creatTextNode(value.title);
+
+      a.setAttribute('href',`javascript:getNews(${value.id})`)
+      a.setAttribute('style',"display:block")
+      a.appendChild(text)
+
+      // let str=`<a href='javascript:getNews(${value.id})' style='display:block'>${value.title}</a>`;
+      console.log(a,text)
+      $(".titles").append(a)
+      
+    })
+    
+    // $(".titles").html(tt[0].title)
 
   })
 
